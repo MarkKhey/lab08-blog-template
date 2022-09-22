@@ -100,7 +100,7 @@ reducer.removePost = (id) => {
 reducer.deletePost = (postId) => {
   // TODO Section 8: Add code to perform delete
   return (dispatch) => {
-    api.delete('/posts' + postId).then(() => {
+    api.delete('/posts/' + postId).then(() => {
       dispatch(reducer.removePost(postId));
     }).catch(() => {
       alert('Failed to delete post.');
