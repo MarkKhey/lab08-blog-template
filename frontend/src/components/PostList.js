@@ -38,7 +38,8 @@ class PostList extends React.Component {
           key={currentPost.id}
           post={currentPost}
           time={this.props.time}
-          savePost={this.props.savePost}
+          savePost={this.props.savePost}          
+          deletePost={this.props.deletePost}
         />
       );
     };
@@ -51,8 +52,9 @@ class PostList extends React.Component {
             createPost={this.props.createPost}
           />
 
-          {/* TODO Section 3: Write code to list all the posts */}
-
+          {/* TODO Section 3: Write code to list all the posts */
+            this.props.posts.visiblePosts.map(createPostComponent)
+          }
           {/* Button for loading more posts */}
           <button className="blog-load-more btn btn-default btn-lg"
             onClick={onLoadButtonClick}

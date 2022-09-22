@@ -17,7 +17,13 @@ const PostMeta = (props) => {
       </a>
 
       {/* TODO Section 8: Add a delete button */}
-
+      <a role="button" title="Delete post"
+        style={{ paddingRight: '8px' }}
+        onClick={ props.onDelete }
+      >
+        <span className="fa fa-remove" />
+      </a>
+      
       { moment(props.post.createdAt).from(props.time.now) }
     </div>
   );
@@ -36,8 +42,10 @@ const PostView = (props) => {
       <h2 className="blog-post-title">{props.post.title}</h2>
 
       {/* TODO Section 4: Display blog metadata */}
+      <PostMeta {...props} />
 
       {/* TODO Section 4: Display blog content */}
+      <div className="blog-post-content">{props.post.content}</div>
     </div>
   );
 };

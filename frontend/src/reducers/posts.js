@@ -98,7 +98,14 @@ reducer.removePost = (id) => {
 // Attempts to delete a post from the server and removes it from the visible
 // post list if successful
 reducer.deletePost = (postId) => {
-   // TODO Section 8: Add code to perform delete
+  // TODO Section 8: Add code to perform delete
+  return (dispatch) => {
+    api.delete('/posts' + postId).then(() => {
+      dispatch(reducer.removePost(postId));
+    }).catch(() => {
+      alert('Failed to delete post.');
+    });
+  };
 };
 
 // Attempts to update a post on the server and updates local post data if
